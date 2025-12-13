@@ -31,7 +31,7 @@
     "floating-vue": "^5.2.2",
     "http-proxy-middleware": "^3.0.2",
     "mobile-detect": "^1.4.5",
-    "nuxt": "^3.13.0",
+    "nuxt": "^4.2.2",
     "openseadragon": "^5.0.0",
     "vue": "latest",
     "vue-router": "latest",

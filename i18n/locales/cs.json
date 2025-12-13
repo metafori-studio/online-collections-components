@@ -45,7 +45,8 @@
       "technique": "Technika",
       "topic": "Námět",
       "workType": "Výtvarný druh",
-      "location": "Lokace"
+      "location": "Lokace",
+      "acquisition": "Akvizice"
     },
     "resultsCount": "děl|dílo|díla|děl",
     "resultsFor": "nalezenych pro",
