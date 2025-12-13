@@ -25,9 +25,7 @@ export default defineNuxtConfig({
     prefix: 'WUMobile',
   }],
   devtools: { enabled: true },
-  future: {
-    compatibilityVersion: 4,
-  },
+
   features: {
     inlineStyles: false,
   },
