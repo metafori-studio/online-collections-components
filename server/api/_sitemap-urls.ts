@@ -24,7 +24,7 @@ export default defineEventHandler(async () => {
   const fetchAllItems = async () => {
     const res = await $fetch<any>(`${process.env.API_URL}/v2/items?size=1000`, {
       headers: {
-        'X-Frontend': config.public.APP_X_FRONTEND,
+        'X-Frontend': config.public.APP_X_FRONTEND as string,
         'Accept-Language': 'cs',
       },
     })
@@ -38,17 +38,17 @@ export default defineEventHandler(async () => {
         `${process.env.API_URL}/v2/items?size=1000&page=${page}`,
         {
           headers: {
-            'X-Frontend': config.public.APP_X_FRONTEND,
+            'X-Frontend': config.public.APP_X_FRONTEND as string,
             'Accept-Language': 'cs',
           },
-        }
+        },
       )
 
       items.push(
         ...pageItems.map((i: any) => ({
           url: `/items/${i.id}`,
           updatedAt: now,
-        }))
+        })),
       )
     }
 
@@ -65,7 +65,7 @@ export default defineEventHandler(async () => {
       url: `/collections/${i.id}`,
       updatedAt: now,
     })),
-  ].map((i) => ({
+  ].map(i => ({
     url: i.url,
     lastmod: i.updatedAt,
     changefreq: 'monthly',

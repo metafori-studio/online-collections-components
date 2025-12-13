@@ -63,6 +63,6 @@ withDefaults(
 const index = ref(0)
 const carousel = ref<InstanceType<typeof ModuleCarousel> | null>(null)
 const slots = useSlots()
-const items = computed(() => (slots.default!()[0].children || []) as VNode[])
-const click = computed(() => items.value[index.value].props?.onClick)
+const items = computed(() => (slots.default!()[0]?.children || []) as VNode[])
+const click = computed(() => items.value[index.value]?.props?.onClick)
 </script>
