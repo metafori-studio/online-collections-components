@@ -120,6 +120,32 @@ const controlsService = async (
       }
     },
 
+    color: ({ key, label }: ISetupOptions) => {
+      const aggKey = `terms[${key}]`
+      const filterKey = `filter[${key}]`
+      const routeDefault = route.query[key] ? String(route.query[key]) : null
+
+      return {
+        type: 'color',
+        key,
+        label,
+        aggKey,
+        filterKey,
+        initModel: routeDefault ?? null,
+        resetModel: null,
+        filter: (value: string) => (value ? { [filterKey]: value } : undefined),
+        route: (value: string) => (value ? { [key]: value } : undefined),
+        aggregation: () => ({ [aggKey]: key }),
+
+        selected: () => model[key]
+          ? [{ key, value: model[key], label }]
+          : null,
+        toggle: (value: string) => {
+          model[key] = model[key] === value ? null : value
+        },
+      }
+    },
+
     range: ({ key, label, extra }: ISetupOptions) => {
       const rangeKeys = extra?.rangeKeys ?? { min: 'min', max: 'max' }
       const aggKey = `terms[${key}]`

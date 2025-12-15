@@ -4,7 +4,7 @@
       class="hidden md:flex flex-wrap gap-x-4 gap-y-2"
     >
       <component
-        :is="components[item.type as keyof typeof components]"
+        :is="useControlComponent(item.type)"
         v-for="(item) in controls"
         :key="item.key"
         :name="item.key"
@@ -33,17 +33,23 @@ import Range from '~/components/controls/Range.vue'
 import Boolean from '~/components/controls/Boolean.vue'
 import Hidden from '~/components/controls/Hidden.vue'
 import Hr from '~/components/controls/Hr.vue'
+import ColorPicker from '~/components/controls/ColorPicker.vue'
 
 const isMobileMenuOpened = ref(false)
 
 const { width } = useWindowSize()
 
-const components = {
-  boolean: Boolean,
-  select: Select,
-  range: Range,
-  hr: Hr,
-  hidden: Hidden,
+const useControlComponent = (type: string) => {
+  const components = {
+    boolean: Boolean,
+    select: Select,
+    range: Range,
+    color: ColorPicker,
+    hr: Hr,
+    hidden: Hidden,
+  }
+
+  return components[type as keyof typeof components]
 }
 
 const { controls } = await useControls()

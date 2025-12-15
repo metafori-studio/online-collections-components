@@ -33,6 +33,7 @@
     "attribute": {
       "acquisitionDate": "Datum akvizice",
       "author": "Autor",
+      "color": "Barva",
       "dateRange": "Roky",
       "dating": "Datace",
       "exhibition": "Výstava",
