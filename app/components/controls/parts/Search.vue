@@ -23,7 +23,6 @@
 </template>
 
 <script setup lang="ts">
-import Icon from '~/components/general/Icon.vue'
 
 withDefaults(
   defineProps<{

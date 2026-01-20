@@ -27,7 +27,6 @@
 import Slider from '@vueform/slider'
 
 import '@vueform/slider/themes/default.css'
-import { useControls } from '~/composables/controls'
 
 const props = defineProps<{
   name: string

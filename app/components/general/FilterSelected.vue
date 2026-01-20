@@ -39,8 +39,6 @@
 </template>
 
 <script setup lang="ts">
-import Icon from '~/components/general/Icon.vue'
-import { useControls } from '~/composables/controls'
 
 const { resetFilters, selectedFilters, controls } = await useControls()
 const { t } = useI18n()

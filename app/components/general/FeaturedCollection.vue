@@ -27,8 +27,6 @@
 
 <script setup lang="ts">
 import Collection from '~/models/Collection'
-import Icon from '~/components/general/Icon.vue'
-import { useBaseFetch } from '~/composables/fetch'
 
 interface Response {
   data: Collection[]

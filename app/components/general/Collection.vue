@@ -19,7 +19,6 @@
 <script setup lang="ts">
 import type Collection from '~/models/Collection'
 
-import Image from '~/components/general/Image.vue'
 
 defineProps<{
   collection: Collection

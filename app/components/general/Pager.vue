@@ -27,7 +27,6 @@
 <script setup lang="ts">
 import { useIntersectionObserver } from '@vueuse/core'
 
-import Icon from '~/components/general/Icon.vue'
 
 const props = withDefaults(defineProps<{
   isLoading: boolean

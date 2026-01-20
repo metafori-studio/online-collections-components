@@ -6,7 +6,6 @@
 </template>
 
 <script setup lang="ts">
-import { useControls } from '~/composables/controls'
 
 const props = withDefaults(
   defineProps<{

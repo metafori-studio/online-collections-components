@@ -60,10 +60,6 @@
 <script setup lang="ts">
 import type Item from '~/models/Item'
 
-import Image from '~/components/general/Image.vue'
-import Icon from '~/components/general/Icon.vue'
-import Skeleton from '~/components/general/Skeleton.vue'
-import SkeletonLine from '~/components/general/SkeletonLine.vue'
 
 const props = defineProps<{
   item: Item

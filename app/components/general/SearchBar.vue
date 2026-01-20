@@ -40,11 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import Search from '~/components/controls/parts/Search.vue'
 import Item from '~/models/Item'
-import Image from '~/components/general/Image.vue'
-import { useBaseFetch } from '~/composables/fetch'
-import { useControls } from '~/composables/controls'
 
 const props = defineProps<{
   name: string

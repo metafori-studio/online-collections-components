@@ -132,12 +132,6 @@
 <script setup lang="ts">
 import { useWindowSize } from '@vueuse/core'
 
-import Icon from '~/components/general/Icon.vue'
-import { useControls } from '~/composables/controls'
-import BooleanComponent from '~/components/controls/Boolean.vue'
-import Select from '~/components/controls/mobile/Select.vue'
-import Range from '~/components/controls/mobile/Range.vue'
-import Hr from '~/components/controls/Hr.vue'
 
 defineProps<{
   isOpened: object | boolean

@@ -25,14 +25,6 @@
 <script setup lang="ts">
 import { useWindowSize } from '@vueuse/core'
 
-import { useControls } from '~/composables/controls'
-import FilterMobile from '~/components/general/FilterMobile.vue'
-import FilterSelected from '~/components/general/FilterSelected.vue'
-import Select from '~/components/controls/Select.vue'
-import Range from '~/components/controls/Range.vue'
-import Boolean from '~/components/controls/Boolean.vue'
-import Hidden from '~/components/controls/Hidden.vue'
-import Hr from '~/components/controls/Hr.vue'
 
 const isMobileMenuOpened = ref(false)
 

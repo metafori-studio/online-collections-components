@@ -15,7 +15,6 @@
 
 <script setup lang="ts">
 import { formatAuthor } from '~/utils/formatters'
-import { useControls } from '~/composables/controls'
 
 const props = defineProps<{
   attribute: string

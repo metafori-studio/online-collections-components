@@ -58,8 +58,6 @@
 import Slider from '@vueform/slider'
 
 import '@vueform/slider/themes/default.css'
-import Icon from '~/components/general/Icon.vue'
-import { useControls } from '~/composables/controls'
 
 const props = defineProps<{
   name: string

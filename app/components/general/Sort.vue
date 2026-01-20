@@ -13,8 +13,6 @@
 </template>
 
 <script lang="ts" setup>
-import Dropdown from '~/components/general/Dropdown.vue'
-import { useControls } from '~/composables/controls'
 
 const { sortBy, sortDirection } = await useControls()
 const { t } = useI18n()

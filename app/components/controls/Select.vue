@@ -73,9 +73,6 @@
 </template>
 
 <script setup lang="ts">
-import Search from '~/components/controls/parts/Search.vue'
-import Icon from '~/components/general/Icon.vue'
-import { useControls } from '~/composables/controls'
 
 const props = defineProps<{
   name: string

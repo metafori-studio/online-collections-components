@@ -48,7 +48,6 @@
 </template>
 
 <script setup lang="ts">
-import Icon from '~/components/general/Icon.vue'
 
 const props = defineProps<{
   default?: string
