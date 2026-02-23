@@ -16,24 +16,15 @@
 import Dropdown from '~/components/general/Dropdown.vue'
 import { useControls } from '~/composables/controls'
 
-const { sortBy, sortDirection } = await useControls()
+const { sortBy, sortDirection, sortOptions } = await useControls()
 const { t } = useI18n()
 
-const sortOptions = [
-  { label: t('item.sortOptions.updatedAt'), value: 'updated_at', direction: 'desc' },
-  { label: t('item.sortOptions.createdAt'), value: 'created_at', direction: 'asc' },
-  { label: t('item.sortOptions.title'), value: 'title', direction: 'asc' },
-  { label: t('item.sortOptions.dateEarliest'), value: 'date_earliest', direction: 'asc' },
-  { label: t('item.sortOptions.viewCount'), value: 'view_count', direction: 'desc' },
-  { label: t('item.sortOptions.random'), value: 'random', direction: 'asc' },
-] as const
-
-const model = ref<(typeof sortOptions)[number]['value']>(
-  sortOptions.find(option => option.value === sortBy.value)?.value ?? sortOptions[0].value,
+const model = ref<string>(
+  sortOptions.value.find(option => option.value === sortBy.value)?.value ?? sortOptions.value[0]!.value,
 )
 
 const onUpdate = (value: string) => {
-  const option = sortOptions.find(option => option.value === value)
+  const option = sortOptions.value.find(option => option.value === value)
 
   if (option) {
     sortBy.value = option.value

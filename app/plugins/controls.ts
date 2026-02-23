@@ -35,6 +35,7 @@ const controlsService = async (
     sortDirection: 'desc',
     perPage: 12,
   },
+  t: (key: string) => string,
 ) => {
   const route = useRoute()
   const router = useRouter()
@@ -48,6 +49,15 @@ const controlsService = async (
   const sortDirection = ref(
     route.query.sortDirection ? String(route.query.sortDirection) : options.sortDirection,
   )
+
+  const sortOptions = ref([
+    { label: t('item.sortOptions.updatedAt'), value: 'updated_at', direction: 'desc' },
+    { label: t('item.sortOptions.createdAt'), value: 'created_at', direction: 'asc' },
+    { label: t('item.sortOptions.title'), value: 'title', direction: 'asc' },
+    { label: t('item.sortOptions.dateEarliest'), value: 'date_earliest', direction: 'asc' },
+    { label: t('item.sortOptions.viewCount'), value: 'view_count', direction: 'desc' },
+    { label: t('item.sortOptions.random'), value: 'random', direction: 'asc' },
+  ])
 
   //
   // Components setup
@@ -317,8 +327,31 @@ const controlsService = async (
   let itemsDataFetch: any = null
   let aggDataFetch: any = null
 
-  async function init(filterOptions: ISetupOptions[]) {
-    filterOptions.forEach((option) => {
+  async function init(
+    { components, sortBy: initSortBy, sortDirection: initSortDirection, sortOptions: initSortOptions }:
+    {
+      components: ISetupOptions[]
+      sortOptions?: {
+        label: string
+        value: string
+        direction: string
+      }[]
+
+      sortBy?: string
+      sortDirection?: string
+    }) {
+    if (initSortBy) {
+      sortBy.value = initSortBy
+    }
+    if (initSortDirection) {
+      sortDirection.value = initSortDirection
+    }
+
+    if (initSortOptions) {
+      sortOptions.value = initSortOptions
+    }
+
+    components.forEach((option) => {
       const control = controlsComponents[option.type](option)
 
       controls[option.key] = control
@@ -429,6 +462,7 @@ const controlsService = async (
     items: feedItems,
     sortBy,
     sortDirection,
+    sortOptions,
     isLoading,
     total: computed(() => itemsDataFetch?.data.value?.total ?? 0),
     lastPage: computed(() => itemsDataFetch?.data.value?.last_page ?? 0),
@@ -445,7 +479,7 @@ const controlsService = async (
 }
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.provide(ControlsSymbol, controlsService())
+  nuxtApp.vueApp.provide(ControlsSymbol, controlsService(undefined, nuxtApp.$i18n.t))
 
   return {}
 })
