@@ -216,7 +216,7 @@ const controlsService = async (
     return {
       ...filtersQuery.value,
       ...agg,
-      size: 1000,
+      size: 10000,
     }
   })
 
